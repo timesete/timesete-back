@@ -17,6 +17,10 @@ const transporter = nodemailer.createTransport({
 transporter
   .verify()
   .then(() => logger.info('Successfully connected to the email server...'))
-  .catch(() => logger.warn('Server unable to connect, please check your mail configuration.'));
+  .catch(() =>
+    logger.warn(
+      'Server unable to connect, please check your mail configuration.'
+    )
+  );
 
 module.exports = transporter;

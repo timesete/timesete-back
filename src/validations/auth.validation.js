@@ -23,14 +23,7 @@ const resetPassword = {
     token: yup.string().required(),
   }),
   body: yup.object().shape({
-    newPassword: yup
-      .string()
-      .min(8)
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,10}$/,
-        'password must have lower and upper letters, at least one number, and at least one special character'
-      )
-      .required(),
+    newPassword: yup.string().min(8).required(),
   }),
 };
 
