@@ -19,7 +19,7 @@ router.put('/logout', usersController.logout);
 
 router.get('/', validate(users.list), usersController.list);
 router.get('/:id', validate(users.get), usersController.get);
-router.post('/', validate(users.create), usersController.create);
+// router.post('/', validate(users.create), usersController.create);
 router.put('/:id', validate(users.update), usersController.update);
 router.delete('/:id', validate(users.destroy), usersController.destroy);
 

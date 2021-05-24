@@ -51,9 +51,9 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.prototype.toJSON = function () {
-    const user = { ...this.get() };
+    const data = { ...this.get() };
     return Object.fromEntries(
-      Object.entries(user)
+      Object.entries(data)
         .filter(([key]) => !['password'].includes(key))
         .filter(([key]) => !['answer'].includes(key))
         .filter(([key]) => !['passwordResetToken'].includes(key))

@@ -9,46 +9,41 @@ const {
   usersRepository,
 } = require('../../repositories');
 
-module.exports = {
-  refreshToken: async (token, refreshToken) => {
-    let userId;
-    jwt.verify(refreshToken, (err, decoded) => {
-      if (err) {
-        throw new ApplicationError(err.message, httpCodes.UNAUTHORIZED);
-      }
-      userId = decoded.sub.id;
-    });
-
-    const accessToken = await accessTokenRepository.get({
-      where: {
-        [Op.and]: [
-          { token, refreshToken },
-          {
-            expired: false,
-          },
-        ],
-      },
-    });
-
-    if (!accessToken) {
-      throw new ApplicationError(
-        messages.notFound('token'),
-        httpCodes.NOT_FOUND
-      );
+module.exports.refreshToken = async (token, refreshToken) => {
+  let userId;
+  jwt.verify(refreshToken, (err, decoded) => {
+    if (err) {
+      throw new ApplicationError(err.message, httpCodes.UNAUTHORIZED);
     }
+    userId = decoded.sub.id;
+  });
 
-    accessToken.expired = true;
-    await accessTokenRepository.update(accessToken);
+  const accessToken = await accessTokenRepository.get({
+    where: {
+      [Op.and]: [
+        { token, refreshToken },
+        {
+          expired: false,
+        },
+      ],
+    },
+  });
 
-    const user = await usersRepository.getById(userId);
+  if (!accessToken) {
+    throw new ApplicationError(messages.notFound('token'), httpCodes.NOT_FOUND);
+  }
 
-    return create({
-      sub: {
-        id: user.id,
-        name: user.name,
-        email: user.email,
-      },
-      iat: moment().unix(),
-    });
-  },
+  accessToken.expired = true;
+  await accessTokenRepository.update(accessToken);
+
+  const user = await usersRepository.getById(userId);
+
+  return create({
+    sub: {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+    },
+    iat: moment().unix(),
+  });
 };

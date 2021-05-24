@@ -24,6 +24,7 @@ module.exports = {
     const { body } = req;
 
     body.isAdmin = false;
+    body.isActive = true;
     const response = await usersService.create(body);
 
     return res.status(StatusCodes.CREATED).json(response);
