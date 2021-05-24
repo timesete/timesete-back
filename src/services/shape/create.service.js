@@ -1,19 +1,19 @@
 const { StatusCodes } = require('http-status-codes');
 
-const { categoryRepository } = require('../../repositories');
+const { shapeRepository } = require('../../repositories');
 const { ApplicationError } = require('../../utils');
 const { messages } = require('../../helpers');
 
 module.exports.create = async (params) => {
-  const exists = await categoryRepository.get({
+  const exists = await shapeRepository.get({
     name: params.name,
   });
   if (exists) {
     throw new ApplicationError(
-      messages.alreadyExists('category'),
+      messages.alreadyExists('shape'),
       StatusCodes.CONFLICT
     );
   }
 
-  return categoryRepository.create(params);
+  return shapeRepository.create(params);
 };

@@ -2,8 +2,8 @@ const yup = require('yup');
 
 const create = {
   body: yup.object().shape({
-    name: yup.string().required(),
-    backgroundLink: yup.string().required(),
+    name: yup.string().default(''),
+    backgroundLink: yup.string().default(''),
   }),
 };
 const update = {

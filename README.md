@@ -7,10 +7,10 @@
 [X] Category
 [X] Shape
 [X] Color
-[.] Character
-[.] Part
-[.] Member
-[.] Content
-[.] Article
+[X] Character
+[X] Part
+[X] Member
+[X] Content
+[X] Article
 [.] Challenge
 [.] Goal

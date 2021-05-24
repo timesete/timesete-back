@@ -18,6 +18,18 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'categorys',
     }
   );
+  Category.associate = (models) => {
+    models.Category.hasMany(models.Part, {
+      as: 'parts',
+      foreignKey: 'categoryId',
+      sourceKey: 'id',
+    });
+    models.Category.hasMany(models.Content, {
+      as: 'contents',
+      foreignKey: 'categoryId',
+      sourceKey: 'id',
+    });
+  };
 
   Category.prototype.toJSON = function () {
     const data = { ...this.get() };

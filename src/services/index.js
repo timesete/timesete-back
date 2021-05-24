@@ -6,6 +6,11 @@ const categoryService = require('./category');
 const colorService = require('./color');
 const coverphotoService = require('./coverphoto');
 const shapeService = require('./shape');
+const articleService = require('./article');
+const characterService = require('./character');
+const contentService = require('./content');
+const memberService = require('./member');
+const partService = require('./part');
 
 module.exports = {
   usersService,
@@ -16,4 +21,9 @@ module.exports = {
   colorService,
   coverphotoService,
   shapeService,
+  articleService,
+  characterService,
+  contentService,
+  memberService,
+  partService,
 };

@@ -35,13 +35,14 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'users',
     }
   );
-  // User.associate = (models) => {
-  //   models.User.hasMany(models.Rate, {
-  //     as: 'rates',
-  //     foreignKey: 'user_id',
-  //     sourceKey: 'id',
-  //   });
-  // };
+  User.associate = (models) => {
+    models.User.hasMany(models.Character, {
+      as: 'characters',
+      foreignKey: 'userId',
+      sourceKey: 'id',
+    });
+  };
+
   User.beforeSave(async (user, options) => {
     const password = await encryptor.hashPassword(user.password);
     if (user.changed('password')) {

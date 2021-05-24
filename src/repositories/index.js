@@ -6,6 +6,12 @@ const colorRepository = require('./color.repository');
 const coverphotoRepository = require('./coverphoto.repository');
 const shapeRepository = require('./shape.repository');
 
+const articleRepository = require('./article.repository');
+const characterRepository = require('./character.repository');
+const contentRepository = require('./content.repository');
+const memberRepository = require('./member.repository');
+const partRepository = require('./part.repository');
+
 module.exports = {
   usersRepository,
   accessTokenRepository,
@@ -14,4 +20,9 @@ module.exports = {
   colorRepository,
   coverphotoRepository,
   shapeRepository,
+  articleRepository,
+  characterRepository,
+  contentRepository,
+  memberRepository,
+  partRepository,
 };

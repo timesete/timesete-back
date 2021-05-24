@@ -19,6 +19,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
+  Color.associate = (models) => {
+    models.Color.hasMany(models.Part, {
+      as: 'characters',
+      foreignKey: 'colorId',
+      sourceKey: 'id',
+    });
+  };
+
   Color.prototype.toJSON = function () {
     const data = { ...this.get() };
     return Object.fromEntries(Object.entries(data));

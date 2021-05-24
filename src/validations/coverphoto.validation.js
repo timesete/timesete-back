@@ -2,7 +2,7 @@ const yup = require('yup');
 
 const create = {
   body: yup.object().shape({
-    photoLink: yup.string().required(),
+    photoLink: yup.string().default(''),
   }),
 };
 const update = {
@@ -10,7 +10,7 @@ const update = {
     id: yup.number().integer(),
   }),
   body: yup.object().shape({
-    photoLink: yup.string().required(),
+    photoLink: yup.string(),
   }),
 };
 

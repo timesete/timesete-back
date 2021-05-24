@@ -18,7 +18,13 @@ module.exports = (sequelize, DataTypes) => {
       tableName: 'shapes',
     }
   );
-
+  Shape.associate = (models) => {
+    models.Shape.hasMany(models.Part, {
+      as: 'characters',
+      foreignKey: 'shapeId',
+      sourceKey: 'id',
+    });
+  };
   Shape.prototype.toJSON = function () {
     const data = { ...this.get() };
     return Object.fromEntries(Object.entries(data));
