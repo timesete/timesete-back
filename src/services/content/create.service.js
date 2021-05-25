@@ -1,19 +1,18 @@
-const { StatusCodes } = require('http-status-codes');
+// const { StatusCodes } = require('http-status-codes');
 
 const { contentRepository } = require('../../repositories');
-const { ApplicationError } = require('../../utils');
-const { messages } = require('../../helpers');
+// const { ApplicationError } = require('../../utils');
+// const { messages } = require('../../helpers');
 
-module.exports.create = async (params) => {
-  const exists = await contentRepository.get({
-    name: params.photoLink,
-  });
-  if (exists) {
-    throw new ApplicationError(
-      messages.alreadyExists('content'),
-      StatusCodes.CONFLICT
-    );
-  }
+module.exports.create = async (params) =>
+  // const exists = await contentRepository.get({
+  //   name: params.photoLink,
+  // });
+  // if (exists) {
+  //   throw new ApplicationError(
+  //     messages.alreadyExists('content'),
+  //     StatusCodes.CONFLICT
+  //   );
+  // }
 
-  return contentRepository.create(params);
-};
+  contentRepository.create(params);

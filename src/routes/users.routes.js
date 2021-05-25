@@ -5,7 +5,7 @@ const {
   validationSchemas: { users },
 } = require('../validations');
 
-router.post('/admin', validate(users.create), usersController.createAdmin);
+// router.post('/admin', validate(users.create), usersController.createAdmin);
 router.post('/exist-email', validate(users.email), usersController.existEmail);
 router.put(
   '/reset-password',
