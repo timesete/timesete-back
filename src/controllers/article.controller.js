@@ -10,6 +10,7 @@ module.exports = {
       perPage,
       sortBy,
     });
+
     if (!response || response.data.length === 0) {
       return res.status(StatusCodes.NO_CONTENT).end();
     }

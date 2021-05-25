@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       articleLink: {
         type: DataTypes.STRING,
-        field: 'videoLink',
+        field: 'articleLink',
       },
       contentId: {
         type: DataTypes.INTEGER,

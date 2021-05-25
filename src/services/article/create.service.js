@@ -6,7 +6,7 @@ const { messages } = require('../../helpers');
 
 module.exports.create = async (params) => {
   const exists = await articleRepository.get({
-    name: params.photoLink,
+    articleLink: params.articleLink,
   });
   if (exists) {
     throw new ApplicationError(

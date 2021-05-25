@@ -6,7 +6,7 @@ const { messages } = require('../../helpers');
 
 module.exports.create = async (params) => {
   const exists = await partRepository.get({
-    name: params.assetLink,
+    assetLink: params.assetLink,
   });
   if (exists) {
     throw new ApplicationError(
