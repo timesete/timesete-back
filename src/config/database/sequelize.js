@@ -12,15 +12,13 @@ module.exports = {
       : `${process.env.DB_NAME}-test`,
   host: process.env.DB_HOST,
   dialect: 'postgres',
+
+  protocol: 'postgres',
+  ssl: true,
   dialectOptions: {
-    ssl: true,
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
   },
-  // protocol: 'postgres',
-  // ssl: true,
-  // dialectOptions: {
-  //   ssl: {
-  //     require: true,
-  //     rejectUnauthorized: false,
-  //   },
-  // },
 };
