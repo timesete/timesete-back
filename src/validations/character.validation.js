@@ -15,8 +15,15 @@ const update = {
     userId: yup.number().integer(),
   }),
 };
+const createCharacter = {
+  body: yup.object().shape({
+    isPublic: yup.boolean().default(() => true),
+    members: yup.array().of(yup.number().required()).strict(),
+  }),
+};
 
 module.exports.character = {
   create,
   update,
+  createCharacter,
 };

@@ -53,7 +53,7 @@ module.exports = catchAsync(async (req, res, next) => {
     );
   }
 
-  req.session = { token, id: decoded.id, email: decoded.email };
+  req.session = { token, id: decoded.sub.id, email: decoded.sub.email };
 
   next();
 });

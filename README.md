@@ -46,6 +46,14 @@ allow read, write: if request.auth != null;
 [X] Article
 [.] Challenge
 [.] Goal
-
+[.] Questionpass
+[.] alter table users
 https://www.getpostman.com/collections/3cff4e1af5ff24405c0d
 heroku config:set S3_KEY=8N029N81 S3_SECRET=9s83109d3+583493190
+
+[V] [find all] parts com category, color, shape
+[V] [find all 2 formato] parts com category, color, shape
+[V] [find all] user com lista character, member, part, category, content, article
+[V] [find/id] user com character, member, part, category, content, article
+[V] [find] content com article, category
+[V] [create] personagem {parts:[1,2,3,4], ispublic}

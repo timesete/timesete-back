@@ -7,4 +7,5 @@ module.exports = {
   create: (params) => Character.create(params),
   update: (data) => data.save(),
   destroy: (id) => Character.destroy({ where: { id } }),
+  findOne: (params) => Character.findOne(params),
 };

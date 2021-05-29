@@ -5,7 +5,9 @@ const {
   validationSchemas: { general, content },
 } = require('../validations');
 
-router.get('/', validate(general.list), contentController.list);
+router.get('/', validate(general.list), contentController.findAll);
+
+router.get('/search', validate(general.list), contentController.list);
 router.get('/:id', validate(general.get), contentController.get);
 
 router.use(isAuthorizedAdmin);

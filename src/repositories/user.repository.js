@@ -7,4 +7,6 @@ module.exports = {
   create: (params) => User.create(params),
   update: (user) => user.save(),
   destroy: (id) => User.destroy({ where: { id } }),
+  findAll: (params) => User.findAll(params),
+  find: (params) => User.findOne(params),
 };

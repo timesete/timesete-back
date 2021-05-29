@@ -5,6 +5,7 @@ const create = {
     name: yup.string().default(''),
   }),
 };
+
 const update = {
   params: yup.object().shape({
     id: yup.number().integer(),

@@ -43,4 +43,9 @@ module.exports = {
     await shapeService.destroy(id);
     return res.status(StatusCodes.NO_CONTENT).end();
   }),
+
+  findAll: catchAsync(async (req, res) => {
+    const response = await shapeService.findAll();
+    return res.status(StatusCodes.OK).json(response);
+  }),
 };
