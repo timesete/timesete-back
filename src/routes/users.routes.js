@@ -14,7 +14,16 @@ router.put(
 );
 
 router.use(isAuthorized);
-
+router.get(
+  '/characters',
+  validate(users.list),
+  usersController.findAllCharactersPaginate
+);
+router.get(
+  '/characters/:id',
+  validate(users.get),
+  usersController.findOneCharacters
+);
 router.put('/logout', usersController.logout);
 
 router.get('/', validate(users.list), usersController.list);

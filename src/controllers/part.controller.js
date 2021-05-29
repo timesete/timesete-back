@@ -22,6 +22,11 @@ module.exports = {
     return res.status(StatusCodes.OK).json(response);
   }),
 
+  findAll: catchAsync(async (req, res) => {
+    const response = await partService.findAll();
+    return res.status(StatusCodes.OK).json(response);
+  }),
+
   create: catchAsync(async (req, res) => {
     const { body } = req;
     const response = await partService.create(body);

@@ -28,12 +28,16 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId',
       targetKey: 'id',
     });
-
-    models.Character.belongsToMany(models.Part, {
-      through: 'members',
-      as: 'parts',
-      foreignKey: 'partId',
+    models.Character.hasMany(models.Member, {
+      as: 'members',
+      foreignKey: 'characterId',
+      sourceKey: 'id',
     });
+    // models.Character.belongsToMany(models.Part, {
+    //   // through: 'members',
+    //   as: 'parts',
+    //   foreignKey: 'partId',
+    // });
   };
 
   Character.prototype.toJSON = function () {

@@ -44,6 +44,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'categoryId',
       targetKey: 'id',
     });
+    models.Content.hasMany(models.Article, {
+      as: 'articles',
+      foreignKey: 'contentId',
+      sourceKey: 'id',
+    });
   };
 
   Content.prototype.toJSON = function () {

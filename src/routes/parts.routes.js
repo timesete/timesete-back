@@ -5,7 +5,8 @@ const {
   validationSchemas: { general, part },
 } = require('../validations');
 
-router.get('/', validate(general.list), partController.list);
+router.get('/', partController.findAll);
+router.get('/search', validate(general.list), partController.list);
 router.get('/:id', validate(general.get), partController.get);
 
 router.use(isAuthorized);

@@ -93,4 +93,37 @@ module.exports = {
     await usersService.logout(id, token);
     return res.status(StatusCodes.NO_CONTENT).end();
   }),
+
+  findAllCharacters: catchAsync(async (req, res) => {
+    const {
+      session: { id },
+    } = req;
+
+    const response = await usersService.findAllCharacters(id);
+    return res.status(StatusCodes.OK).json(response);
+  }),
+
+  findAllCharactersPaginate: catchAsync(async (req, res) => {
+    const {
+      session: { id },
+    } = req;
+    const { page, perPage, sortBy } = req.query;
+
+    const response = await usersService.findAllCharactersPaginate(id, {
+      page,
+      perPage,
+      sortBy,
+    });
+
+    if (!response || response.data.length === 0) {
+      return res.status(StatusCodes.NO_CONTENT).end();
+    }
+    return res.status(StatusCodes.OK).json(response);
+  }),
+
+  findOneCharacters: catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const response = await usersService.findOneCharacters(id);
+    return res.status(StatusCodes.OK).json(response);
+  }),
 };

@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Shape.associate = (models) => {
     models.Shape.hasMany(models.Part, {
-      as: 'characters',
+      as: 'parts',
       foreignKey: 'shapeId',
       sourceKey: 'id',
     });

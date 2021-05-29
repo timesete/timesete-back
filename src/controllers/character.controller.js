@@ -27,6 +27,14 @@ module.exports = {
     const response = await characterService.create(body);
     return res.status(StatusCodes.CREATED).json(response);
   }),
+  createCharacter: catchAsync(async (req, res) => {
+    const {
+      body,
+      session: { id },
+    } = req;
+    const response = await characterService.createCharacter(id, body);
+    return res.status(StatusCodes.CREATED).json(response);
+  }),
 
   update: catchAsync(async (req, res) => {
     const {

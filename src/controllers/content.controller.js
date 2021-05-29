@@ -42,4 +42,16 @@ module.exports = {
     await contentService.destroy(id);
     return res.status(StatusCodes.NO_CONTENT).end();
   }),
+  findAll: catchAsync(async (req, res) => {
+    const { page, perPage, sortBy } = req.query;
+    const response = await contentService.findAll({
+      page,
+      perPage,
+      sortBy,
+    });
+    if (!response || response.data.length === 0) {
+      return res.status(StatusCodes.NO_CONTENT).end();
+    }
+    return res.status(StatusCodes.OK).json(response);
+  }),
 };

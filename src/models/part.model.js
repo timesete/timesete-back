@@ -34,11 +34,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   Part.associate = (models) => {
-    models.Part.belongsToMany(models.Character, {
-      through: 'members',
-      as: 'characters',
-      foreignKey: 'characterId',
+    // models.Part.belongsToMany(models.Character, {
+    //   // through: 'members',
+    //   as: 'characters',
+    //   foreignKey: 'characterId',
+    // });
+    models.Part.hasMany(models.Member, {
+      as: 'members',
+      foreignKey: 'partId',
+      sourceKey: 'id',
     });
+
     models.Part.belongsTo(models.Color, {
       as: 'colors',
       foreignKey: 'colorId',

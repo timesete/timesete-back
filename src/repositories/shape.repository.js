@@ -7,4 +7,5 @@ module.exports = {
   create: (params) => Shape.create(params),
   update: (data) => data.save(),
   destroy: (id) => Shape.destroy({ where: { id } }),
+  findAll: (params) => Shape.findAll(params),
 };
