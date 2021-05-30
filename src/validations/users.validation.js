@@ -26,6 +26,7 @@ const create = {
     email: yup.string().email().required(),
     password: yup.string().min(8).required(),
     photoLink: yup.string(),
+    questionpassId: yup.number().integer(),
     answer: yup.string(),
   }),
 };
@@ -43,6 +44,7 @@ const updatePassword = {
     newPassword: yup.string().min(8).required(),
   }),
 };
+
 const answer = {
   body: yup.object().shape({
     answer: yup.string().required(),

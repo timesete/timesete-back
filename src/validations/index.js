@@ -12,6 +12,7 @@ const { character } = require('./character.validation');
 const { content } = require('./content.validation');
 const { member } = require('./member.validation');
 const { part } = require('./part.validation');
+const { questionpass } = require('./questionpass.validation');
 
 module.exports.validationSchemas = {
   general,
@@ -28,4 +29,5 @@ module.exports.validationSchemas = {
   content,
   member,
   part,
+  questionpass,
 };

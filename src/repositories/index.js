@@ -11,6 +11,7 @@ const characterRepository = require('./character.repository');
 const contentRepository = require('./content.repository');
 const memberRepository = require('./member.repository');
 const partRepository = require('./part.repository');
+const questionpassRepository = require('./questionpass.repository');
 
 module.exports = {
   usersRepository,
@@ -25,4 +26,5 @@ module.exports = {
   contentRepository,
   memberRepository,
   partRepository,
+  questionpassRepository,
 };

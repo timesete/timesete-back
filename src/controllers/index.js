@@ -10,6 +10,7 @@ const characterController = require('./character.controller');
 const contentController = require('./content.controller');
 const memberController = require('./member.controller');
 const partController = require('./part.controller');
+const questionpassController = require('./questionpass.controller');
 
 module.exports = {
   usersController,
@@ -24,4 +25,5 @@ module.exports = {
   contentController,
   memberController,
   partController,
+  questionpassController,
 };

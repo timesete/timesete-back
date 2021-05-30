@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
       isAdmin: {
         type: DataTypes.BOOLEAN,
       },
+      questionpassId: {
+        type: DataTypes.INTEGER,
+        field: 'questionpassId',
+      },
       isActive: {
         type: DataTypes.BOOLEAN,
         field: 'is_active',
@@ -41,6 +45,12 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'userId',
       sourceKey: 'id',
     });
+
+    models.User.belongsTo(models.Questionpass, {
+      as: 'questionpass',
+      foreignKey: 'questionpassId',
+      targetKey: 'id',
+    });
   };
 
   User.beforeSave(async (user, options) => {
@@ -58,6 +68,7 @@ module.exports = (sequelize, DataTypes) => {
         .filter(([key]) => !['password'].includes(key))
         .filter(([key]) => !['answer'].includes(key))
         .filter(([key]) => !['passwordResetToken'].includes(key))
+        .filter(([key]) => !['questionpassId'].includes(key))
     );
   };
 

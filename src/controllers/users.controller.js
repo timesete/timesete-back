@@ -82,10 +82,11 @@ module.exports = {
   }),
 
   updatePassword: catchAsync(async (req, res) => {
-    const { email, answer, newPassword } = req.body;
-    await usersService.updatePassword(email, answer, newPassword);
+    const { email, answer, questionId, newPassword } = req.body;
+    await usersService.updatePassword(email, answer, newPassword, questionId);
     return res.status(StatusCodes.NO_CONTENT).end();
   }),
+
   logout: catchAsync(async (req, res) => {
     const {
       session: { id, token },
