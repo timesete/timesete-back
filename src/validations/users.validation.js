@@ -39,7 +39,7 @@ const email = {
 const updatePassword = {
   body: yup.object().shape({
     email: yup.string().email().required(),
-    questionId: yup.number().integer().required(),
+    questionpassId: yup.number().integer().required(),
     answer: yup.string().required(),
     newPassword: yup.string().min(8).required(),
   }),

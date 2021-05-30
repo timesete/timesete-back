@@ -8,7 +8,7 @@ module.exports.updatePassword = async (
   email,
   answer,
   newPassword,
-  questionId
+  questionpassId
 ) => {
   const user = await usersRepository.get({ email });
   if (!user) {
@@ -17,7 +17,7 @@ module.exports.updatePassword = async (
       StatusCodes.NOT_FOUND
     );
   }
-  if (user.dataValues.questionId !== questionId) {
+  if (user.dataValues.questionpassId !== questionpassId) {
     throw new ApplicationError(
       messages.notFound('users'),
       StatusCodes.NOT_FOUND

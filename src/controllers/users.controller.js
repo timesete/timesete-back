@@ -82,8 +82,13 @@ module.exports = {
   }),
 
   updatePassword: catchAsync(async (req, res) => {
-    const { email, answer, questionId, newPassword } = req.body;
-    await usersService.updatePassword(email, answer, newPassword, questionId);
+    const { email, answer, questionpassId, newPassword } = req.body;
+    await usersService.updatePassword(
+      email,
+      answer,
+      newPassword,
+      questionpassId
+    );
     return res.status(StatusCodes.NO_CONTENT).end();
   }),
 
