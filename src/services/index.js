@@ -11,6 +11,7 @@ const characterService = require('./character');
 const contentService = require('./content');
 const memberService = require('./member');
 const partService = require('./part');
+const questionpassService = require('./questionpass');
 
 module.exports = {
   usersService,
@@ -26,4 +27,5 @@ module.exports = {
   contentService,
   memberService,
   partService,
+  questionpassService,
 };

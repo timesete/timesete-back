@@ -10,6 +10,7 @@ const { coverphotos } = require('./coverphotos.routes');
 const { members } = require('./members.routes');
 const { parts } = require('./parts.routes');
 const { shapes } = require('./shapes.routes');
+const { questionpass } = require('./questionpass.routes');
 
 module.exports = {
   users,
@@ -24,4 +25,5 @@ module.exports = {
   members,
   parts,
   shapes,
+  questionpass,
 };
